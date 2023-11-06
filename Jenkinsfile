@@ -55,11 +55,19 @@ pipeline {
                         sh "docker push hamzabenmhenni/hamzabenmhenni-5nids2-g2.jar"
                     }
                 }
-                stage('Docker Compose Deployment') {
-                    steps {
-                        sh '/home/vagrant/.docker/cli-plugins/docker-compose -f docker-compose.yml up -d'
-                    }
-                }
+               stage('Copy Docker Compose Binary') {
+                   steps {
+                       sh 'cp /home/vagrant/.docker/cli-plugins/docker-compose /usr/local/bin/docker-compose'
+                       sh 'chmod +x /usr/local/bin/docker-compose'
+                   }
+               }
+               
+               stage('Docker Compose Deployment') {
+                   steps {
+                       sh 'docker-compose -f docker-compose.yml up -d'
+                   }
+               }
+
 
     }
 }
