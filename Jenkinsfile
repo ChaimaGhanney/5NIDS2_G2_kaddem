@@ -57,7 +57,7 @@ pipeline {
                 }
                 stage('Docker Compose Deployment') {
                     steps {
-                        sh 'docker-compose -f docker-compose.yml up -d'
+                        sh '/home/vagrant/.docker/cli-plugins/docker-compose -f docker-compose.yml up -d'
                     }
                 }
 

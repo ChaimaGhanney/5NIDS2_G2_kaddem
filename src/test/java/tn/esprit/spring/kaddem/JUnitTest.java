@@ -13,7 +13,7 @@ import tn.esprit.spring.kaddem.services.DepartementServiceImpl;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class JUnitTest {
     @Autowired
