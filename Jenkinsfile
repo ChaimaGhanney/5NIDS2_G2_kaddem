@@ -38,7 +38,7 @@ pipeline {
                 	   steps {
                 		 script {
                 			// Generating image from Dockerfile
-                			  sh 'docker build -t hamzabenmhenni/hamzaBENMHENNI-5NIDS2-G2.jar .'
+                			  sh 'docker build -t hamzabenmhenni/hamzabenmhenni-5nids2-g2.jar .'
                 			}
                 		 }
                 	    }
@@ -52,7 +52,7 @@ pipeline {
                         }
 
                         // Push the Docker image to Docker Hub
-                        sh "docker push hamzabenmhenni/hamzaBENMHENNI-5NIDS2-G2.jar"
+                        sh "docker push hamzabenmhenni/hamzabenmhenni-5nids2-g2.jar"
                     }
                 }
 
