@@ -55,6 +55,11 @@ pipeline {
                         sh "docker push hamzabenmhenni/hamzabenmhenni-5nids2-g2.jar"
                     }
                 }
+                stage('Docker Compose Deployment') {
+                    steps {
+                        sh 'docker-compose -f docker-compose.yml up -d'
+                    }
+                }
 
     }
 }
