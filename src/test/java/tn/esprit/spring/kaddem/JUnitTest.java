@@ -37,7 +37,7 @@ public class JUnitTest {
 
     @Test
     public void testDeleteExistingDepartment() {
-        int existingDepartement = 3; // Use a product ID that exists
+        int existingDepartement = 4; // Use a product ID that exists
 
         // Act: Perform the operation being tested
         departementService.deleteDepartement(existingDepartement);
