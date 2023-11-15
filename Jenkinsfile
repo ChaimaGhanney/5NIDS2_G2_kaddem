@@ -34,6 +34,13 @@ pipeline {
                               sh "mvn deploy -DskipTests"
                                      }
                                }
+        stage('Prometheus And Grafana'){
+                            steps {
+
+                                sh "docker start prometheus"
+                        	    sh "docker start grafana"
+                        		}
+                        	}
         stage('Building Docker image') {
                 	   steps {
                 		 script {
@@ -66,6 +73,7 @@ pipeline {
                               }
                           }
                       }
+
 
     }
 }
