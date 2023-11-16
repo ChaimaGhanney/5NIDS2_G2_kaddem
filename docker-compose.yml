@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   mysqldb:
     image: mysql:latest
@@ -7,11 +7,10 @@ services:
       - MYSQL_DATABASE=kaddemdb
     ports:
       - "3307:3306"
+    secrets:
+      - mysql_root_password
     volumes:
       - db:/var/lib/mysql
-      - ./mysql_root_password.txt:/run/secrets/mysql_root_password:ro
-    command: ["tail", "-f", "/dev/null"]
-
 
   backend:
     depends_on:
@@ -24,7 +23,11 @@ services:
     tty: true
     volumes:
       - .m2:/root/.m2
-      - ./mysql_root_password.txt:/run/secrets/mysql_root_password:ro
+
+secrets:
+  mysql_root_password:
+    external: true
+    name: mysql_root_password
 
 volumes:
   db:
