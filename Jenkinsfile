@@ -65,7 +65,7 @@ pipeline {
               stage('Docker Compose Deployment') {
                           steps {
                               script {
-                                 
+
 
                                   // Run Docker Compose with the downloaded JAR file
                                   sh 'docker-compose -f docker-compose.yml up -d'
