@@ -10,7 +10,7 @@ services:
     volumes:
       - db:/var/lib/mysql
       - ./mysql_root_password.txt:/run/secrets/mysql_root_password:ro
-    command: tail -f /dev/null
+    command: ["tail", "-f", "/dev/null"]
 
 
   backend:
