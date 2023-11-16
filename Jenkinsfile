@@ -65,8 +65,7 @@ pipeline {
               stage('Docker Compose Deployment') {
                           steps {
                               script {
-                                  // Download the JAR file from Nexus
-                                  sh 'curl -o hamza.jar -L http://192.168.33.10:8081/repository/maven-releases/tn/esprit/spring/kaddem/0.0.1/kaddem-0.0.1.jar'
+                                 
 
                                   // Run Docker Compose with the downloaded JAR file
                                   sh 'docker-compose -f docker-compose.yml up -d'
