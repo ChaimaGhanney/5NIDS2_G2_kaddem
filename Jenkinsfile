@@ -72,6 +72,14 @@ pipeline {
                               }
                           }
                       }
+        stage('Nmap Scan') {
+            steps {
+                script {
+                    // Run Nmap scan
+                    sh 'nmap 192.168.33.10'
+                }
+            }
+        }
 
 
     }
