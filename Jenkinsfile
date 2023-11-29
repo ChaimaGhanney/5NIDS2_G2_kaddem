@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        // Define Dependency-Check tool installation
+        dependencyCheck 'DP-check'
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -89,15 +93,19 @@ pipeline {
             }
         }
         stage('OWASP Dependency Check') {
-          steps {
-        dependencyCheck additionalArguments: '''
-           -o './'
-           -s './'
-           -f 'ALL'
-           --prettyPrint''', odcInstallation: 'DP-check'
-        dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-    }
-}
+            steps {
+                script {
+                    // Use dependency-check tool in the script
+                    dependencyCheck additionalArguments: '''
+                        -o './'
+                        -s './'
+                        -f 'ALL'
+                        --prettyPrint''', odcInstallation: 'DP-check'
+
+                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                }
+            }
+        }
 
 
     }
