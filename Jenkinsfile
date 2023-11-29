@@ -80,6 +80,14 @@ pipeline {
                 }
             }
         }
+        stage('SQLMap Scan') {
+            steps {
+                script {
+                    // Run SQLMap scan
+                    sh 'sqlmap -u http://192.168.33.10:8090/kaddem/departement/retrieve-departement/1'
+                }
+            }
+        }
 
 
     }
