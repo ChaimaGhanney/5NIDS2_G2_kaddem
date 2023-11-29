@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    tools {
-        // Define Dependency-Check tool installation
-        dependencyCheck 'DP-check'
-    }
+    
     stages {
         stage('Checkout') {
             steps {
